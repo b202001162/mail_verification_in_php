@@ -28,14 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $password = $_POST['password'];
                 $email = trim($_POST['email']);
                 $token = md5(rand());
-
                 
 
                 $sql = "INSERT into user (name, email, password, token)  values('$name', '$email','$password', '$token' )";
 
                 $result = mysqli_query($conn, $sql);
-
                 
+                header("location: email_verification.php");
 
             }
         }
